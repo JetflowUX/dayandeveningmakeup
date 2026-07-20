@@ -1,0 +1,63 @@
+/* ============================================================================
+   Day and Evening Makeup — editorial token layer
+   Two authored themes selected by [data-mode] on <html>. Restrained ink/paper
+   palette; the photography carries the colour. Day = warm paper, Evening = near
+   black. Verified: Day ink 15.6:1, muted 5.0:1, oxblood 7.1:1 (white-on 8.1);
+   Evening text 15.4:1, muted 7.2:1, rose 9.1:1 (ink-on 9.1).
+   ============================================================================ */
+
+:root,
+:root[data-mode="day"] {
+  color-scheme: light;
+  --bg:          #F3EFE8;   /* warm bone paper */
+  --bg-2:        #EBE5DA;
+  --ink:         #1A1714;   /* near-black warm */
+  --paper:       #F3EFE8;
+  --muted:       #6E655C;
+  --accent:      #8C2F3D;   /* oxblood */
+  --accent-ink:  #FFFFFF;
+  --line:        color-mix(in srgb, var(--ink) 16%, transparent);
+  --line-soft:   color-mix(in srgb, var(--ink) 9%, transparent);
+  --scrim:       linear-gradient(180deg, rgba(10,8,7,0.42) 0%, rgba(10,8,7,0) 28%, rgba(10,8,7,0) 55%, rgba(10,8,7,0.55) 100%);
+  --on-image:    #F6F2EA;
+}
+
+:root[data-mode="evening"] {
+  color-scheme: dark;
+  --bg:          #14100F;   /* near-black warm */
+  --bg-2:        #0E0B0A;
+  --ink:         #EFE7DC;   /* warm paper text */
+  --paper:       #211B18;
+  --muted:       #A99E92;
+  --accent:      #E8A0AE;   /* lit rose */
+  --accent-ink:  #14100F;
+  --line:        color-mix(in srgb, var(--ink) 20%, transparent);
+  --line-soft:   color-mix(in srgb, var(--ink) 11%, transparent);
+  --scrim:       linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.72) 100%);
+  --on-image:    #F3ECE2;
+}
+
+:root {
+  --font-display: "Bodoni Moda Variable", "Bodoni Moda", Didot, "Times New Roman", serif;
+  --font-sans:    "Archivo Variable", "Archivo", system-ui, sans-serif;
+
+  /* Editorial type scale — big display, tight body. */
+  --t-cap:   0.72rem;                                   /* small-caps labels */
+  --t-sm:    clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+  --t-body:  clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --t-lead:  clamp(1.2rem, 1.05rem + 0.7vw, 1.6rem);
+  --t-h3:    clamp(1.5rem, 1.2rem + 1.4vw, 2.4rem);
+  --t-h2:    clamp(2.2rem, 1.5rem + 3.2vw, 4.6rem);
+  --t-h1:    clamp(3rem, 1.2rem + 8vw, 9rem);
+  --t-mega:  clamp(3.6rem, 0.5rem + 13vw, 13rem);       /* masthead */
+
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem;
+  --sp-6:2rem;   --sp-8:3rem;  --sp-10:4rem;  --sp-12:6rem; --sp-16:8rem; --sp-20:11rem;
+
+  --edge: clamp(1.25rem, 5vw, 5rem);   /* page side margin */
+  --maxw: 1500px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fade: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) { :root { --fade: 1ms; } }
